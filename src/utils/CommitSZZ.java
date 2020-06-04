@@ -10,7 +10,7 @@ import java.util.List;
 
 import utilmport.getJIRAInfo;
 
-public class CommitSZZ extends Commit {
+public class CommitSZZ extends Commit {//TODO : comm
 	
 	public List<Commit> associatedBugs;
 

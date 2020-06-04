@@ -1,7 +1,6 @@
 package utils;
 
 import java.time.Duration;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Collections;
@@ -11,26 +10,19 @@ import java.util.List;
 
 import utilmport.getJIRAInfo;
 
-public class Bug {
+public class Bug { //TODO : comm
 	public List<CommitSZZ> commitIntroducersSZZ;
 	public Commit commitIntroducerReal;
 	public Commit commitFix;
 	
-	public Bug(String hashFix, List<String> hashIntroducers) {
+	public Bug(String hashFix, List<CommitSZZ> commitIntroducersSZZ) {
 		this.commitFix = new Commit(hashFix);
 		this.commitIntroducersSZZ = new LinkedList<CommitSZZ>();
-		for(String hashIntroducer : hashIntroducers) {
-			this.commitIntroducersSZZ.add(new CommitSZZ(hashIntroducer));
-		}
+		
+		this.commitIntroducersSZZ = commitIntroducersSZZ;
+		
 		this.commitIntroducerReal = new Commit(getJIRAInfo.getRealIntroducer(hashFix));
 		
-		/*System.out.println("Fix hash : " + commitFix.hashCode);
-		System.out.println("Intro hash : " + commitIntroducerReal.hashCode);
-		System.out.print("Intro SZZ hashs : ");
-		System.out.println(hashIntroducers);
-		System.out.println("Intro time span : " + potentialIntroducerTimeSpan());
-		System.out.println();*/
-		//Integer a = 1/0;
 	}
 	
 	public boolean earliestBugAppearance() {

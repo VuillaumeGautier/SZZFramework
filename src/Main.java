@@ -23,16 +23,24 @@ public class Main {
 		Map<String, String> parsedArg = ArgParser.parseArg(args);
 
 		String pathToResults = parsedArg.get("-results");
+		if(pathToResults == null) {System.out.println("No path to the results json");}
+		if(parsedArg.get("-truth") == null) {System.out.println("No path to the ground truth json");}
+		if(parsedArg.get("-repo") == null) {System.out.println("No path to the repo");}
+		
 		getJIRAInfo.setUpReader(parsedArg.get("-truth"), parsedArg.get("-repo"));
 		System.out.println("Setup OK");
 		
-		Integer wellDetected = 0;
-		//Generate Bugs from result JSON
+		
+		//Generate Bugs objects from result JSON
 		List<Bug> bugs;
 		bugs = generateBugs.readJsonResults(pathToResults);
 		System.out.println("Bug import OK");
-		//For each bug, do evaluation of earliest bug appearance and get commit introducers
-		Integer earliestBugAppearanceCounter = 0;
+		
+		
+		//For each bug, do evaluation of earliest bug appearance and get commit introducers.
+		
+		Integer earliestBugAppearanceCounter = 0; //Counter for the earliest bug appearance metric
+		Integer wellDetected = 0; //Counter for the precision of the algorithm
 		
 		Set<CommitSZZ> commitIntroducerList = new LinkedHashSet<CommitSZZ>();
 		List<Integer> timeSpanPotentials = new LinkedList<Integer>();
@@ -43,15 +51,17 @@ public class Main {
 			commitIntroducerList.addAll(bug.commitIntroducersSZZ);
 			
 			Integer ts = bug.potentialIntroducerTimeSpan();
-			//TODO : A enlever
-			if(ts != 0) {timeSpanPotentials.add(ts);}
+			//remove 
+			/*if(ts != 0) {*/
+			timeSpanPotentials.add(ts);
+			//}
 		}
 		
 		float earliestBugAppearanceRatio = ((float)earliestBugAppearanceCounter)/((float)bugs.size());
 		
 		//For each distinct introducing commit, count the number of bugs and generate the list of timespans
 		Integer moreBugsThanCap = 0;
-		Integer bugCap = 1;
+		Integer bugCap = 3; //abstract value used by the Framework
 		List<Integer> futureImpacts = new LinkedList<Integer>();
 		List<Integer> timeSpanImpacts = new LinkedList<Integer>();
 		
@@ -111,7 +121,7 @@ public class Main {
 		for(Integer timeSpan : timeSpans) {
 			deviations.add(Math.abs(timeSpan - median));
 		}
-		return median + median(deviations);
+		return median + (int)mean(deviations);
 	}
 	
 	public static Integer median(List<Integer> list) {

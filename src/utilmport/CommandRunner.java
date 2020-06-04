@@ -3,7 +3,7 @@ package utilmport;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class CommandRunner {
+public class CommandRunner {//TODO : comm
 	
 	private String os;
 	private String pathRepo;
@@ -17,7 +17,8 @@ public class CommandRunner {
 
 	public String read(String hash) {
 		if(os.equals("windows")) {return readWindows(hash);}
-		return null;
+		return readWindows(hash);
+		//return null;
 	}
 	
 	public String readWindows(String hash){

@@ -14,7 +14,7 @@ import java.util.Map.Entry;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-public class getJIRAInfo {
+public class getJIRAInfo {//TODO : comm
 	
 	private static String pathGroundTruth;
 	private static String pathGitRepo;

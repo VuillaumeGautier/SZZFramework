@@ -3,7 +3,7 @@ package utils;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ArgParser {
+public class ArgParser {//TODO : comm
 	
 	private static String[] argList = {"-results", "-repo", "-truth"}; 
 	
