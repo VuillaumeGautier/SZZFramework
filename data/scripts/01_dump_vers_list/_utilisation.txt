@@ -1,0 +1,9 @@
+Ces deux fichiers servent à transformer des dump vers des listes (csv) contenant les infos suivantes :
+
+Bugifx List :
+
+ID,ID Projet Git, hash fix, ID introducer, date
+
+Bugintro list :
+
+ID, hash introducer

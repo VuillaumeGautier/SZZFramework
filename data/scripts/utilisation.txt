@@ -1,0 +1,3 @@
+Le contenu du 01 permet d'obtenir les deux fichiers nécessaires pour la partie merge. Cette partie doit être modifiée pour obtenir les csv avec les données demandées en fonction des dumps d'entrée.
+Le contenu du 02 permet d'avoir deux fichiers .json. issue_list.json est un des deux inputs de SZZ Unleashed, truth.json est utilisé dans le framework.
+Le contenu du 03 permet de transformer le resultats fix_and_introducers_pairs.json de SZZ unleashed en introducers.json, un fichier d'input du framework

@@ -1,0 +1,1 @@
+Ce fichier python permet de transformer la liste des bugfix et celle des bug introducer pour obtenir un JSON utilisable du ground truth et un autre d'input de SZZ Unleashed
