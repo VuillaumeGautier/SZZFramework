@@ -2,7 +2,7 @@ package utils;
 
 import java.util.Date;
 
-import utilmport.getJIRAInfo;
+import utilmport.getProjectInfo;
 
 public class Commit {
 
@@ -16,7 +16,7 @@ public class Commit {
 	
 	public Commit(String hashCode) {
 		this.hashCode = hashCode;
-		this.date = getJIRAInfo.getDateOfCommit(hashCode);
+		this.date = getProjectInfo.getDateOfCommit(hashCode);
 	}
 	
 }

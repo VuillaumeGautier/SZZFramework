@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Set;
 
 import utilmport.generateBugs;
-import utilmport.getJIRAInfo;
+import utilmport.getProjectInfo;
 import utils.ArgParser;
 import utils.Bug;
 import utils.CommitSZZ;
@@ -27,7 +27,7 @@ public class Main {
 		if(parsedArg.get("-truth") == null) {System.out.println("No path to the ground truth json");}
 		if(parsedArg.get("-repo") == null) {System.out.println("No path to the repo");}
 		
-		getJIRAInfo.setUpReader(parsedArg.get("-truth"), parsedArg.get("-repo"));
+		getProjectInfo.setUpReader(parsedArg.get("-truth"), parsedArg.get("-repo"));
 		System.out.println("Setup OK");
 		
 		
