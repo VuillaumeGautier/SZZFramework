@@ -8,6 +8,6 @@ Add 3 arguements : </br>
                    ```-repo "path to the git repository on your local drive"```</br>
                    ```-results "path to the json file containing the results from SZZ" ```</br>
                    ```-truth "path to the ground truth JSON"```</br>
-The format are detailled in the script folder.</br>
+The format are detailled in the data/script folder.</br>
 </br>
 The console will then display differents values, corresponding to different criterions. 
